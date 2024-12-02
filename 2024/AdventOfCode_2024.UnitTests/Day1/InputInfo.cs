@@ -1,4 +1,4 @@
-namespace AdventOfCode2024.UnitTests;
+namespace AdventOfCode_2024.UnitTests.Day1;
 
 public static class InputInfo
 {
