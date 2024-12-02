@@ -115,7 +115,7 @@ public class Day2Tests
     }
 
     [TestMethod]
-    public void Part2_FindHowManySafeFromInput()
+    public void Part1_FindHowManySafeFromInput()
     {
         int nbSafe = Reporter.HowManySafe(Input);
 
@@ -146,10 +146,8 @@ public static class Reporter
             for (var i = 0; i < line.Length; i++)
             {
                 var nextIndex = i + 1;
-                
-                if (!line.SequenceEqual(asc) && !line.SequenceEqual(desc) ||
-                    (nextIndex < line.Length && (line[i] == line[nextIndex] || 
-                    Math.Abs(line[i] - line[nextIndex]) < 1 || Math.Abs(line[i] - line[nextIndex]) > 3)))
+
+                if (IsLineUnsafe(line, asc, desc, i, nextIndex))
                 {
                     lineSafe = false;
                     break;
@@ -160,5 +158,12 @@ public static class Reporter
         }
 
         return nbSafe;
+    }
+
+    private static bool IsLineUnsafe(int[] line, int[] asc, int[] desc, int i, int nextIndex)
+    {
+        return !line.SequenceEqual(asc) && !line.SequenceEqual(desc) ||
+            (nextIndex < line.Length && (line[i] == line[nextIndex] ||
+            Math.Abs(line[i] - line[nextIndex]) < 1 || Math.Abs(line[i] - line[nextIndex]) > 3));
     }
 }
