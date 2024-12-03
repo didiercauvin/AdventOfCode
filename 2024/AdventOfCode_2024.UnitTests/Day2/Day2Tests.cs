@@ -151,7 +151,7 @@ public class Day2Tests
     {
         int nbSafe = Reporter.HowManySafe(Input, true);
 
-        Assert.AreEqual(567, nbSafe);
+        Assert.AreEqual(510, nbSafe);
     }
 }
 
